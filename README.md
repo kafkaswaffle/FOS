@@ -1,16 +1,6 @@
-# FOS - A Sage package for first-order differential and difference systems
+# FOS - A Sage Package for First-Order Differential and Difference Systems
 
 ***
-
-## Copyright and License
-
-> Copyright (C) 2018
->              Maximilian Jaroschek (maximilian@mjaroschek.com),
->
-> Distributed under the terms of the GNU General Public License (GPL)
-> either version 2, or (at your option) any later version
->
-> http://www.gnu.org/licenses/
 
 ## IMPORTANT
 
@@ -19,4 +9,27 @@ available version is **not** intended to be a usable release.
 
 ## Download
 
-Get the package at (https://github.com/kafkaswaffle/FOS)
+Get the package at <https://github.com/kafkaswaffle/FOS>.
+
+## Requirements
+
+*FOS* requires the installation of the [ore_algebra](https://github.com/mkauers/ore_algebra) package.  
+*FOS* is developed for the latest Sage release version 8.4. It was not tested with
+previous sage versions.
+
+## How to Cite
+
+If you use this package as part of your research, please cite the package as follows:
+
+> M\. Jaroschek. FOS -- A Sage Package for First-Order Differential and Difference Systems. Development build. 2018. http://www.mjaroschek.com/fos/
+
+## Copyright and License
+
+Copyright (C) 2018
+             Maximilian Jaroschek (maximilian@mjaroschek.com),
+
+Distributed under the terms of the GNU General Public License (GPL)
+either version 2, or (at your option) any later version.
+
+<http://www.gnu.org/licenses/>
+
