@@ -19,7 +19,7 @@ Install a local copy via
 
 or directly from the repository via
 
-`sage -pip install git+https://github.com/mkauers/ore_algebra.git`
+`sage -pip install git+https://github.com/mjaroschek/FOS.git`
 
 ## Requirements
 
