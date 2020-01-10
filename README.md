@@ -11,6 +11,16 @@ available version is **not** intended to be a usable release.
 
 Get the package at <https://github.com/kafkaswaffle/FOS>.
 
+## Installation
+
+Install a local copy via
+
+sage -pip install .
+
+or directly from the repository via
+
+`sage -pip install git+https://github.com/mkauers/ore_algebra.git`
+
 ## Requirements
 
 *FOS* requires the installation of the [ore_algebra](https://github.com/mkauers/ore_algebra) package.  
@@ -21,11 +31,11 @@ previous sage versions.
 
 If you use this package as part of your research, please cite the package as follows:
 
-> M\. Jaroschek. FOS -- A Sage Package for First-Order Differential and Difference Systems. Development build. 2018. http://www.mjaroschek.com/fos/
+> M\. Jaroschek. FOS -- A Sage Package for First-Order Differential and Difference Systems. Development build. 2020. http://www.mjaroschek.com/fos/
 
 ## Copyright and License
 
-Copyright (C) 2018
+Copyright (C) 2020
              Maximilian Jaroschek (maximilian@mjaroschek.com),
 
 Distributed under the terms of the GNU General Public License (GPL)

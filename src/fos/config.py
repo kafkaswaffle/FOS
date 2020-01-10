@@ -1,3 +1,20 @@
+"""
+config
+==================
+
+"""
+
+
+#############################################################################
+#  Copyright (C) 2020                                                       #
+#                Maximilian Jaroschek (maximilian@mjaroschek.com),          #
+#                                                                           #
+#  Distributed under the terms of the GNU General Public License (GPL)      #
+#  either version 2, or (at your option) any later version                  #
+#                                                                           #
+#  http://www.gnu.org/licenses/                                             #
+#############################################################################
+
 global_systype='d'
 global_systype_warning=True
 systype_d=['diff','d']

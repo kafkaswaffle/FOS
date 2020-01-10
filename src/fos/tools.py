@@ -6,7 +6,7 @@ tools
 
 
 #############################################################################
-#  Copyright (C) 2018                                                       #
+#  Copyright (C) 2020                                                       #
 #                Maximilian Jaroschek (maximilian@mjaroschek.com),          #
 #                                                                           #
 #  Distributed under the terms of the GNU General Public License (GPL)      #
