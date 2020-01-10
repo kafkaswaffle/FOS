@@ -15,7 +15,7 @@ Get the package at <https://github.com/kafkaswaffle/FOS>.
 
 Install a local copy via
 
-sage -pip install .
+'sage -pip install .'
 
 or directly from the repository via
 
