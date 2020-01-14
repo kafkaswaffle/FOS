@@ -832,7 +832,7 @@ def exponential_part(M):
         exps.append(G(reduce(lambda a,b:a*b,map(lambda x: m(1,x[0]*1/x[1]*x[0].numerator().degree(),ramification=x[1]), monoms))))
     return diagonal_matrix(exps)
 
-def fundamental_solution_regular_diff(M,prec=5):
+def _fundamental_solutions_regular_diff(M,prec=5):
     r"""
     Computes a fundamental system of soltuions with generalized series entries
     of a first order differential system around zero up to a given order,
@@ -914,7 +914,7 @@ def fundamental_solution_regular_diff(M,prec=5):
         M=M/var
         (Tb,M,_)=moser_reduction(M,var)
         T=T*Tb
-        (Tb,sol)=fundamental_solution_regular_diff(M,prec)
+        (Tb,sol)=_fundamental_solutions_regular_diff(M,prec)
         return (T*Tb,T*sol)
 
     # Construct T coefficientwise such that the transformed system is just the
@@ -938,7 +938,7 @@ def __matrix_exponential(M,base=None,prec=5):
     r"""
     Computes base^M, where base is an indeterminate and M a square matrix. The
     entries of the result will be sums of generalized series (see description of
-    fundamental_solution_regular_diff for more details).
+    _fundamental_solutions_regular_diff for more details).
 
     Input:
         - M ... a square matrix with entries in a number field.
@@ -979,7 +979,7 @@ def __matrix_exponential_nilpotent(M):
     r"""
     Computes the exponential of a nilpotent matrix. The entries of the result
     will be sums of generalized series (see description of
-    fundamental_solution_regular_diff for more details).
+    _fundamental_solutions_regular_diff for more details).
 
     Input:
         - M ... a nilpotent square matrix with entries in a number field.
@@ -1001,7 +1001,7 @@ def __matrix_exponential_nilpotent(M):
     return sol
 
 
-def fundamental_solution_scalar_diff(M):
+def _fundamental_solutions_scalar_diff(M):
     R=M.parent().base_ring()
     var='D'+repr(R.gens()[0])
     ore=OreAlgebra(R,var)

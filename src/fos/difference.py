@@ -15,9 +15,14 @@ difference
 #  http://www.gnu.org/licenses/                                             #
 #############################################################################
 
+from .config import *
+from .tools import padic_expansion,__lift
+from .general import shearing_transformation, apply_transformation
+
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.rational_field import QQ
 from sage.rings.infinity import Infinity
+from copy import copy
 
 def _desingularize_shift(M,l=None):
     r"""
@@ -53,13 +58,13 @@ def _desingularize_shift(M,l=None):
         for q in l2:
             valcount=0
             oldVal=None
-            while true:
+            while True:
                 (v,RA)=padic_expansion(M,q,1)
                 if oldVal==None:
                     oldVal=v
                 RA=RA[0]
                 if(v>=0): break
-                r=rank(RA)
+                r=RA.rank()
                 T = M.parent().one()
                 disp=dispersion(M.determinant().numerator(),q)
                 if (disp==-Infinity): break
@@ -68,8 +73,8 @@ def _desingularize_shift(M,l=None):
                 d=d/q
                 A=A*d
                 qs=q
-                br=false
-                while true:
+                br=False
+                while True:
                     (v2,RA) = padic_expansion(A,qs,1)
                     RA=RA[0]
                     (RA,_,Ti)=RA.smith_form()
@@ -82,7 +87,9 @@ def _desingularize_shift(M,l=None):
                     Ti = __lift(Ti)
                     T2i = shearing_transformation(A.parent(),r2,p=qs)
                     T = T*Ti*T2i
-                    A=apply_transformation(A,Ti*T2i,systype=__systype_s[0])
+                    print(Ti)
+                    print(T2i)
+                    A=apply_transformation(A,Ti*T2i,systype=systype_s[0])
                     qs=qs.parent()(qs.subs({var:var+1}))
                     i=i+1
                     if i>disp:
@@ -138,7 +145,7 @@ def _is_shift_minimal(p,q):
 def _polynomial_solutions_shift(M,N=None):
     
     (M,_,F,R,K,var)=__parent_info(M)
-    systype=__systype_s[0]
+    systype=systype_s[0]
 
     # Set right hand side to zero if it is set to None
     if N==None:
@@ -170,7 +177,7 @@ def _polynomial_solutions_shift(M,N=None):
 
 
 def _rational_solutions_shift(M,B=None):
-    pass
+    raise NotImplementedError
 
 
 def _shift_minimal_orbits(p):
@@ -243,7 +250,7 @@ def _super_reduction_shift(M,k):
 
     (M,MS,F,R,K,var)=__parent_info(M)
     p=var
-    systype=__systype_s[0]
+    systype=systype_s[0]
     (val,M0)=factorial_expansion(M,1)
     M0=M0[0]
 
@@ -354,7 +361,7 @@ def _super_reduction_shift(M,k):
 def k_rank_shift(M,k,details=False):
     (M,MS,_,_,_,_)=__parent_info(M)
     T=MS.one()
-    systype=__systype_s[0]
+    systype=systype_s[0]
     
     val=-matrix_valuation(M,Infinity)
 

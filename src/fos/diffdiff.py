@@ -17,7 +17,8 @@ diffdiff
 
 from .config import *
 from .tools import __parent_info,matrix_valuation
-from .differential import _rational_solutions_diff,_polynomial_solutions_diff,_desingularize_diff
+from .differential import _rational_solutions_diff,_polynomial_solutions_diff,_desingularize_diff,_fundamental_solutions_regular_diff
+from .difference import _rational_solutions_shift,_polynomial_solutions_shift,_desingularize_shift
 
 from ore_algebra.generalized_series import GeneralizedSeriesMonoid
 
@@ -105,3 +106,11 @@ def rational_solutions(M,rhs=None,systype=None):
     else: raise ValueError(systype_error_string)
 
 
+def fundamental_solutions_regular(M,prec=5,systype=None):
+    if systype==None: systype=systype_fallback()
+
+    if systype in systype_d:
+        return _fundamental_solutions_regular_diff(M,prec)
+    elif systype in systype_s:
+        return _fundamental_solutions_regular_shift(M,prec)
+    else: raise ValueError(systype_error_string)
